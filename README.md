@@ -2,6 +2,8 @@
 
 **Paper**: [Shorter but not Worse: Frugal Reasoning via Easy Samples as Length Regularizers in Math RLVR](paper.pdf)
 
+**Trained models and datasets** are publicly available on our [Hugging Face collection](https://huggingface.co/collections/MBZUAI-Paris/frugal-ai).
+
 **Base Model**: [Qwen/Qwen3-4B-Thinking-2507](https://huggingface.co/Qwen/Qwen3-4B-Thinking-2507)
 
 **Authors**: [Abdelaziz Bounhar](https://scholar.google.com/citations?user=MeyZL18AAAAJ&hl=fr) et al.
