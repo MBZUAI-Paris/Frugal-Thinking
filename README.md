@@ -4,6 +4,7 @@
 
 **Trained models and datasets** are publicly available on our [Hugging Face collection](https://huggingface.co/collections/MBZUAI-Paris/frugal-thinking).
 
+**Project page**: https://mbzuai-paris.github.io/Frugal-Thinking
 
 <p align="center">
   <img src="assets/perfs.png" alt="Reasoning Performance Evaluation" width="750" style="display: block; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 14px; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14); background: #ffffff;"/>
