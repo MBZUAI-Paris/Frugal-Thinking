@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frugal Thinking — Project Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&display=swap');
+
+    :root {
+      --bg: #f7f4ee;
+      --ink: #121722;
+      --muted: #5a6474;
+      --card: #ffffff;
+      --border: rgba(15, 23, 42, 0.12);
+      --accent: #d96b3a;
+      --accent-2: #1f6a64;
+      --accent-3: #efc468;
+      --font-serif: "Fraunces", "Times New Roman", serif;
+      --font-sans: "IBM Plex Sans", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background: linear-gradient(180deg, #f7f4ee 0%, #f3efe6 45%, #f8f4ec 100%);
+    }
+
+    .page {
+      width: min(1200px, 92vw);
+      margin: 40px auto 80px auto;
+      display: grid;
+      gap: 28px;
+    }
+
+    .hero {
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.96));
+      border-radius: 26px;
+      border: 1px solid var(--border);
+      padding: 28px 32px;
+      box-shadow: 0 28px 60px rgba(15, 23, 42, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(150deg, rgba(239, 196, 104, 0.22), rgba(31, 106, 100, 0.10), transparent 60%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 14px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .pill {
+      background: rgba(217, 107, 58, 0.15);
+      color: #b04f27;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3vw, 42px);
+      letter-spacing: 0.2px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 820px;
+    }
+
+    .authors {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      font-weight: 600;
+    }
+
+    .affil {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .link-btn {
+      text-decoration: none;
+      color: var(--ink);
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .section {
+      background: var(--card);
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      padding: 22px 24px;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+    }
+
+    .section.flat {
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    .section h2 {
+      margin: 0 0 10px 0;
+      font-family: var(--font-serif);
+      font-size: 22px;
+    }
+
+    .section p {
+      margin: 0 0 10px 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .two-col p {
+      text-wrap: pretty;
+    }
+
+    .two-col {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: minmax(260px, 0.8fr) minmax(320px, 1.2fr);
+    }
+
+    .callout {
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+      color: var(--muted);
+    }
+
+    .embed-block { margin-top: 12px; }
+
+    .names-embed {
+      --bg: #f9f9f7;
+      --ink: #000000;
+      --muted: #b6b09f;
+      --card: #ffffff;
+      --border: #b6b09f;
+      font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: transparent;
+      padding: 0;
+    }
+
+    .names-embed * { box-sizing: border-box; }
+    .names-embed .card {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+      position: relative;
+      overflow: hidden;
+      padding: 20px 24px 16px 24px;
+    }
+
+    .names-embed .heading {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 4px 4px 8px 4px;
+    }
+
+    .names-embed .title {
+      font-family: "IBM Plex Serif", "Times New Roman", serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #0b1220;
+    }
+
+    .names-embed .legend {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 8px 10px;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #0f172a;
+      user-select: none;
+      padding: 6px 4px;
+      border-radius: 12px;
+      overflow-x: auto;
+      max-width: 100%;
+      scrollbar-width: thin;
+    }
+
+    .names-embed .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.18);
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+    }
+
+    .names-embed .legend-logo {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,.08);
+    }
+
+    .names-embed .legend-logo img { width: 100%; height: 100%; object-fit: contain; }
+    .names-embed .swatch { width: 18px; height: 10px; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.12); }
+    .names-embed .legend-label { font-weight: 600; }
+
+    .names-embed .chart-wrap {
+      position: absolute;
+      inset: 96px 16px 18px 16px;
+    }
+
+    .names-embed .footnote {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      bottom: 26px; font-size: 12px; color: var(--muted);
+    }
+
+    .scale-embed {
+      --bg: #ffffff;
+      --ink: #0b1220;
+      --muted: #5b6472;
+      --card: #fbfbf9;
+      --border: rgba(15, 23, 42, 0.12);
+      --accent: #de7a4a;
+      --accent-2: #1b6f6a;
+      --accent-3: #efc468;
+      font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: transparent;
+      padding: 0;
+    }
+
+    .scale-embed * { box-sizing: border-box; }
+    .scale-embed .card {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.92));
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.15);
+      position: relative;
+      overflow: hidden;
+      padding: 18px 22px 16px 22px;
+      backdrop-filter: blur(8px);
+    }
+
+    .scale-embed .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(140deg, rgba(239, 196, 104, 0.25), rgba(27, 111, 106, 0.12), transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .scale-embed .heading {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 6px 4px 10px 4px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .scale-embed .meta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      color: var(--muted);
+    }
+
+    .scale-embed .pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(222, 122, 74, 0.12);
+      color: #b6562e;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+    }
+
+    .scale-embed .title {
+      font-family: "Fraunces", "Times New Roman", serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .scale-embed .subtitle {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .scale-embed .legend {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 10px 14px;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--ink);
+      user-select: none;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .scale-embed .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+      backdrop-filter: blur(6px);
+    }
+
+    .scale-embed .legend-logo {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,.08);
+    }
+
+    .scale-embed .legend-logo img { width: 100%; height: 100%; object-fit: contain; }
+    .scale-embed .swatch { width: 18px; height: 10px; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.12); }
+    .scale-embed .legend-label { font-weight: 600; }
+
+    .scale-embed .chart-wrap {
+      position: absolute;
+      inset: 140px 16px 18px 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.9));
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+
+    .scale-embed .footnote {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      bottom: 20px; font-size: 12px; color: var(--muted);
+      z-index: 2;
+    }
+
+    .caption {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .gallery {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .gallery-item {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 10px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .gallery-label {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .hero { padding: 22px; }
+      .names-embed .card { aspect-ratio: 4 / 3; }
+      .scale-embed .card { aspect-ratio: 4 / 3; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="eyebrow">
+          <span class="pill">Project Page</span>
+          <span>Frugal Thinking</span>
+        </div>
+        <h1>Shorter but not Worse: Frugal Reasoning via Easy Samples as Length Regularizers in Math RLVR</h1>
+        <div class="subtitle">
+          Retaining and modestly up-weighting moderately easy problems acts as an implicit length regularizer.
+          We match AIME25 accuracy while producing much shorter solutions without explicit length penalties.
+        </div>
+      <div class="authors">
+        <span>
+          <a href="https://scholar.google.com/citations?user=MeyZL18AAAAJ&hl=en" target="_blank">
+            Abdelaziz Bounhar<sup>1,*</sup>
+          </a>
+        </span>
+        <span>
+          <a href="https://scholar.google.com/citations?user=yX24ZNQAAAAJ&hl=en" target="_blank">
+            Hadi Abdine<sup>1</sup>
+          </a>
+        </span>
+        <span>
+          <a href="https://scholar.google.com/citations?user=YeWwlxgAAAAJ&hl=en" target="_blank">
+            Evan Dufraisse<sup>1</sup>
+          </a>
+        </span>
+        <span>
+          <a href="https://scholar.google.com/citations?user=OzxzBdcAAAAJ&hl=en" target="_blank">
+            Ahmad Chamma<sup>1</sup>
+          </a>
+        </span>
+        <span>
+          <a href="https://scholar.google.fr/citations?user=v1ioXsoAAAAJ&hl=fr" target="_blank">
+            Amr Mohamed<sup>1</sup>
+          </a>
+        </span>
+        <span>
+          <a href="https://huggingface.co/Rateddany" target="_blank">
+            Dani Bouch<sup>1</sup>
+          </a>
+        </span>
+        <span>
+          <a href="https://scholar.google.com/citations?user=aWGJYcMAAAAJ&hl=fr" target="_blank">
+            Michalis Vazirgiannis<sup>1,2</sup>
+          </a>
+        </span>
+        <span>
+          <a href="https://scholar.google.com/citations?user=EcBibPkAAAAJ&hl=en" target="_blank">
+            Guokan Shang<sup>1,*</sup>
+          </a>
+        </span>
+      </div>
+
+      <div class="affiliations">
+        <span><sup>1</sup> MBZUAI</span>
+        <span><sup>2</sup> École Polytechnique</span>
+      </div>
+
+      <div class="correspondence">
+        <sup>*</sup> Correspondence:
+        <a href="mailto:abdelaziz.bounhar@mbzuai.ac.ae">abdelaziz.bounhar@mbzuai.ac.ae</a>,
+        <a href="mailto:guokan.shang@mbzuai.ac.ae">guokan.shang@mbzuai.ac.ae</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Abstract</h2>
+      <p>
+        Large language models trained for step-by-step reasoning often become excessively verbose, raising inference cost.
+        Standard Reinforcement Learning with Verifiable Rewards (RLVR) pipelines conventionally filter out “easy” problems for training efficiency, leaving the model to train primarily on harder problems that require longer reasoning chains.
+        This skews the output length distribution upward, resulting in a model that conflates “thinking longer” with “thinking better”.
+        We show that retaining and modestly up-weighting moderately easy problems acts as an implicit length regularizer: rewards become associated with concise solutions early, preventing runaway verbosity without any explicit length penalization.
+        RLVR experiments using this approach on <code>Qwen3-4B-Thinking-2507</code> and <code>Qwen3-30B-A3B-Thinking-2507</code> achieve baseline <strong>pass@1</strong> accuracy on the AIME25 benchmark while generating solutions that are, on average, nearly twice as short.
+      </p>
+    </section>
+
+    <section class="section two-col">
+      <div>
+        <h2>Key Ideas</h2>
+        <p class="callout">
+          Easy samples provide stable positive signal associated with short, correct reasoning traces.
+          This regularizes length implicitly while preserving accuracy.
+        </p>
+        <p>
+          We retain problems with non-trivial success probability and train with a fixed context budget.
+          This shifts reward toward concise solutions without any explicit length penalty.
+        </p>
+      </div>
+      <div>
+        <h2>Contributions</h2>
+        <p>- Implicit length regularization by emphasizing moderately easy problems in RLVR.</p>
+        <p>- Empirical validation on Qwen3-4B and Qwen3-30B-A3B with strong AIME25 accuracy.</p>
+        <p>- Public release of Frugal-Thinking models and artifacts.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Observations</h2>
+      <p>
+        We followed a double-stage RLVR training: <br />
+        - <strong>Stage 1</strong> keeps moderately easy samples to encourage concise reasoning trajectories under a 16k token budget.<br />
+        - <strong>Stage 2</strong> applies curriculum RLVR on a filtered DeepMath subset to expand coverage while preserving brevity.
+      </p>
+    </section>
+    
+
+    <section class="section flat">
+      <div class="embed-block names-embed">
+        <div class="card">
+          <div class="heading">
+            <div class="title">Reasoning Performance Evaluation</div>
+            <div class="legend" id="legend-names"></div>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="names-chart" aria-label="Benchmarks bar chart" role="img"></canvas>
+          </div>
+
+          <div class="footnote" id="names-lcb-window" aria-hidden="true"></div>
+        </div>
+      </div>
+      <!-- <div class="caption">Summary visualization of model naming and column layout.</div> -->
+    </section>
+
+    <section class="section flat">
+      <!-- <h2>Test-Time Scaling</h2> -->
+      <div class="embed-block scale-embed">
+        <div class="card">
+          <div class="heading">
+            <div class="meta">
+              <span class="pill">AIME25</span>
+              <span>Test-Time Scaling</span>
+              <span>Context 8k → 42k</span>
+            </div>
+            <div class="title">Test-Time Scaling — AIME25 Accuracy</div>
+            <div class="subtitle">AIME25 pass@1 accuracy by context length (8k → 42k).</div>
+            <div class="legend" id="legend-tt"></div>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="tt-chart" aria-label="Test-time scaling chart" role="img"></canvas>
+          </div>
+
+          <div class="footnote">Lines show accuracy across context length.</div>
+        </div>
+      </div>
+      <!-- <div class="caption">AIME25 accuracy across context lengths (8k → 42k).</div> -->
+    </section>
+
+    <section class="section">
+      <h2>Training Dynamics</h2>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="assets/paper_results/resp_len_mean.png" alt="Average response length during training" />
+          <div class="gallery-label">Avg. length</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/paper_results/resp_len_min.png" alt="Minimum response length during training" />
+          <div class="gallery-label">Min. length</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/paper_results/resp_clip_ratio.png" alt="Response length clip ratio during training" />
+          <div class="gallery-label">Clip ratio</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/paper_results/entropy.png" alt="Policy entropy during training" />
+          <div class="gallery-label">Entropy</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/paper_results/aime25.png" alt="AIME25 accuracy during training" />
+          <div class="gallery-label">AIME25 acc.</div>
+        </div>
+      </div>
+      <br>
+      <!-- <div class="caption">Stage 1 dynamics showing concision and accuracy co-emerge during training.</div> -->
+      <p>
+        <strong>Stage 1:</strong> Early training is dominated by overly long, truncated generations with high entropy and low accuracy.
+        As optimization progresses, average response length and clip ratio drop sharply, entropy stabilizes,
+        and AIME25 validation accuracy rises steadily, indicating that concise reasoning and correctness improve together.
+      </p>
+      <p>
+        <strong>Stage 2:</strong> Curriculum RLVR preserves the same concise behavior while expanding coverage to harder problems.
+        We observe the minimum response length rising to ~1.2k tokens due to increased difficulty, without reverting to the excessive verbosity seen early in Stage 1.
+      </p>
+    </section>
+
+    <div class="footer">Frugal Thinking project page · MBZUAI-IFM Paris.</div>
+    <br>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script>
+    (() => {
+      const canvas = document.getElementById('names-chart');
+      if (!canvas || !window.Chart) return;
+      const ctx = canvas.getContext('2d');
+
+      function makeGrad(context, area, from, to) {
+        const g = context.createLinearGradient(0, area.top, 0, area.bottom);
+        g.addColorStop(0, from);
+        g.addColorStop(1, to);
+        return g;
+      }
+
+      const labels = ['Omni-Hard', 'AIME25', 'GPQA-diamond', 'Math-500', 'Average'];
+
+      const dataSetsRaw = [
+      // OURS: Distinct Blue and Indigo gradients (Light top -> Dark bottom)
+      { key: 'frugal4b',  label: 'Frugal-Thinking-4B (ours)',      shortLabel: 'Frugal-Thinking-4B',      isOurs: true,  logo: 'assets/ifm.png', logoPos: 'top',    data: [47.40, 70.00, 70.20, 95.20, 70.70], from: '#000000', to: '#000000' }, // Sky to Navy
+      { key: 'frugal30b', label: 'Frugal-Thinking-30B-A3B (ours)', shortLabel: 'Frugal-Thinking-30B-A3B', isOurs: true,  logo: 'assets/ifm.png', logoPos: 'top',    data: [46.24, 86.67, 65.65, 97.40, 74.00], from: '#000000', to: '#000000' }, // Indigo to Deep Indigo
+
+      // COMPETITORS: Distinct hues (Mid-tone top -> Pale bottom)
+      { key: 'qwen4b',    label: 'Qwen3-4B-Thinking-2507',         shortLabel: 'Qwen3-4B',                isOurs: false, logo: 'assets/qwen.webp',        logoPos: 'center', data: [4.62, 73.33,  67.17,97.60, 60.68], from: '#c1d9ff', to: '#CDC1FF' }, // Red/Rose
+      { key: 'qwen30b',   label: 'Qwen3-30B-A3B-Thinking-2507',    shortLabel: 'Qwen3-30B-A3B',           isOurs: false, logo: 'assets/qwen.webp',        logoPos: 'center', data: [8.09, 86.67,  70.71,97.80, 65.82], from: '#f1f5f9', to: '#CDC1FF' }, // Orange
+      // { key: 'falcon',    label: 'Falcon-H1R',                     shortLabel: 'Falcon-H1R',              isOurs: false, logo: 'assets/tii.png',         logoPos: 'center', data: [52.02, 76.66, 61.62, 94.20, 71.12], from: '#EFE9E3', to: '#F9F8F6'  }, // Yellow
+      { key: 'smollm3',   label: 'SmolLM3-3B',                     shortLabel: 'SmolLM3-3B',              isOurs: false, logo: 'assets/hf.png',          logoPos: 'center', data: [35.26, 30.00, 27.78, 90.80, 45.96], from: '#86efac', to: '#f0fdf4' }, // Green
+      { key: 'phi4',      label: 'Phi-4-mini-reasoning',           shortLabel: 'Phi-4-mini',              isOurs: false, logo: 'assets/microsoft.png',   logoPos: 'center', data: [32.37, 40.00, 30.30, 90.80, 48.37], from: '#94a3b8', to: '#f1f5f9' }, // Slate Grey
+    ];
+
+      const logoCache = {};
+      function getLogo(src, chart) {
+        if (!src) return null;
+        if (logoCache[src]) return logoCache[src];
+        const img = new Image();
+        img.onload = () => chart.update();
+        img.src = src;
+        logoCache[src] = img;
+        return img;
+      }
+
+      const drawValues = {
+        id: 'drawValuesNames',
+        afterDatasetsDraw(chart) {
+          const { ctx } = chart;
+          ctx.save();
+          ctx.font = '600 12px "Times New Roman", Times, serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'bottom';
+
+          chart.data.datasets.forEach((dataset, datasetIndex) => {
+            const meta = chart.getDatasetMeta(datasetIndex);
+            meta.data.forEach((bar, i) => {
+              const value = dataset.data[i];
+              const text = typeof value === 'number' ? value.toFixed(1) : value;
+              ctx.fillStyle = dataset.valueColor || '#111827';
+              ctx.fillText(text, bar.x, bar.y - 6);
+
+              if (dataset.isOurs && dataset.shortLabel) {
+                ctx.save();
+                ctx.font = '700 16px "Times New Roman", Times, serif';
+                const labelY = bar.base - 6;
+                ctx.translate(bar.x, labelY);
+                ctx.rotate(-Math.PI / 2);
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'middle';
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = 'rgba(6, 12, 20, 0.55)';
+                ctx.fillStyle = dataset.labelColor || '#f8fafc';
+                ctx.strokeText(dataset.shortLabel, 0, 0);
+                ctx.fillText(dataset.shortLabel, 0, 0);
+                ctx.restore();
+              }
+
+              if (dataset.logoSrc) {
+                const img = getLogo(dataset.logoSrc, chart);
+                if (img && img.complete) {
+                  const maxSize = Math.min(28, bar.width * 0.9);
+                  const ar = img.width / img.height;
+                  const w = ar >= 1 ? maxSize : maxSize * ar;
+                  const h = ar >= 1 ? maxSize / ar : maxSize;
+                  const y = dataset.logoPos === 'top'
+                    ? bar.y + h * 0.6
+                    : bar.y + (bar.base - bar.y) / 2;
+                  ctx.save();
+                  ctx.globalAlpha = 0.95;
+                  ctx.drawImage(img, bar.x - w / 2, y - h / 2, w, h);
+                  ctx.restore();
+                }
+              }
+            });
+          });
+
+          ctx.restore();
+        }
+      };
+
+      const legendEl = document.getElementById('legend-names');
+      if (legendEl) {
+        legendEl.textContent = '';
+        dataSetsRaw.filter((s) => !s.isOurs).forEach((s) => {
+          const item = document.createElement('span');
+          item.className = 'legend-item';
+
+          const logo = document.createElement('span');
+          logo.className = 'legend-logo';
+          if (s.logo) {
+            const img = document.createElement('img');
+            img.src = s.logo;
+            img.alt = s.label;
+            img.loading = 'lazy';
+            logo.appendChild(img);
+          }
+
+          const swatch = document.createElement('span');
+          swatch.className = 'swatch';
+          swatch.style.background = `linear-gradient(180deg, ${s.from}, ${s.to})`;
+
+          const label = document.createElement('span');
+          label.className = 'legend-label';
+          label.textContent = s.label;
+
+          item.appendChild(logo);
+          item.appendChild(swatch);
+          item.appendChild(label);
+          legendEl.appendChild(item);
+        });
+      }
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: dataSetsRaw.map((s) => ({
+            label: s.label,
+            data: s.data,
+            isOurs: s.isOurs,
+            shortLabel: s.shortLabel,
+            valueColor: s.isOurs ? '#0b1a2a' : '#1f2937',
+            labelColor: '#f8fafc',
+            logoSrc: s.logo,
+            logoPos: s.logoPos,
+            borderWidth: 0,
+            borderSkipped: false,
+            borderRadius: 10,
+            backgroundColor: (context) => {
+              const { chart } = context;
+              const { chartArea } = chart;
+              if (!chartArea) return s.from;
+              return makeGrad(chart.ctx, chartArea, s.from, s.to);
+            },
+            barPercentage: 0.82,
+            categoryPercentage: 0.78,
+            hoverBackgroundColor: s.from,
+          }))
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: { padding: { top: 14, left: 8, right: 8, bottom: 28 } },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: (context) => `${context.dataset.label}: ${context.raw}`
+              }
+            }
+          },
+          scales: {
+            x: {
+              stacked: false,
+              ticks: { font: { weight: '600' } },
+              grid: { display: false }
+            },
+            y: {
+              min: 0,
+              max: 100,
+              ticks: { stepSize: 20 },
+              grid: { color: 'rgba(0,0,0,.06)' }
+            }
+          }
+        },
+        plugins: [drawValues]
+      });
+
+      const footnote = document.getElementById('names-lcb-window');
+      if (footnote) footnote.textContent = '';
+    })();
+
+    (() => {
+      const canvas = document.getElementById('tt-chart');
+      if (!canvas || !window.Chart) return;
+      const ctx = canvas.getContext('2d');
+
+      const labels = ['8k', '16k', '32k', '42k'];
+
+      const dataSetsRaw = [
+        { key: 'qwen30b',  label: 'Qwen3-30B-A3B-Thinking-2507', logo: 'assets/qwen.webp',       data: [20.00, 60.00, 86.67, 86.67], from: '#8FB3E6', to: '#DFE9F7' },
+        { key: 'mag2509',  label: 'Magistral-Small-2509',        logo: 'assets/mistral.webp',    data: [26.67, 66.67, 80.00, 80.00], from: '#E4B1A9', to: '#F6E1DD' },
+        { key: 'smollm3',  label: 'SmolLM3-3B',                  logo: 'assets/hf.png',          data: [23.33, 30.00, 30.00, 30.00], from: '#C9B58F', to: '#EFE5D3' },
+        { key: 'phi4',     label: 'Phi-4-mini-reasoning',        logo: 'assets/microsoft.png',   data: [23.33, 33.33, 40.00, 40.00], from: '#9BC9C2', to: '#E1F1EF' },
+        { key: 'qwen4b',   label: 'Qwen3-4B-Thinking-2507',       logo: 'assets/qwen.webp',       data: [13.33, 46.67, 73.33, 73.33], from: '#A7C8E6', to: '#E4F1FB' },
+        { key: 'fr30s2',   label: 'Frugal-Thinking-30B-A3B',      logo: '', data: [40.00, 73.33, 86.67, 86.67], from: '#000000', to: '#000000', dash: null, pointStyle: 'circle', showStartLabel: true, labelOffset: -56, labelOffsetY: -24 },
+        { key: 'fr4s2',    label: 'Frugal-Thinking-4B',           logo: '', data: [53.33, 70.00, 70.00, 70.00], from: '#000000', to: '#000000', dash: [6, 4], pointStyle: 'rectRounded', showStartLabel: true },
+      ];
+
+      const logoCache = {};
+      function getLogo(src, chart) {
+        if (!src) return null;
+        if (logoCache[src]) return logoCache[src];
+        const img = new Image();
+        img.onload = () => chart.update();
+        img.src = src;
+        logoCache[src] = img;
+        return img;
+      }
+
+      const legendEl = document.getElementById('legend-tt');
+      if (legendEl) {
+        legendEl.textContent = '';
+        dataSetsRaw.forEach((s) => {
+          if (s.showStartLabel) return;
+          const item = document.createElement('span');
+          item.className = 'legend-item';
+
+          const logo = document.createElement('span');
+          logo.className = 'legend-logo';
+          if (s.logo) {
+            const img = document.createElement('img');
+            img.src = s.logo;
+            img.alt = s.label;
+            img.loading = 'lazy';
+            logo.appendChild(img);
+          }
+
+          const swatch = document.createElement('span');
+          swatch.className = 'swatch';
+          if (s.dash) {
+            swatch.style.background = `repeating-linear-gradient(90deg, ${s.from} 0 6px, transparent 6px 10px)`;
+          } else {
+            swatch.style.background = `linear-gradient(180deg, ${s.from}, ${s.to})`;
+          }
+
+          const label = document.createElement('span');
+          label.className = 'legend-label';
+          label.textContent = s.label;
+
+          item.appendChild(logo);
+          item.appendChild(swatch);
+          item.appendChild(label);
+          legendEl.appendChild(item);
+        });
+      }
+
+      const drawValues = {
+        id: 'drawValuesTT',
+        afterDatasetsDraw(chart) {
+          const { ctx } = chart;
+          ctx.save();
+          ctx.font = '600 11px "IBM Plex Sans", sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'bottom';
+          chart.data.datasets.forEach((dataset, datasetIndex) => {
+            const meta = chart.getDatasetMeta(datasetIndex);
+            meta.data.forEach((bar, i) => {
+              const value = dataset.data[i];
+              const text = typeof value === 'number' ? value.toFixed(2) : value;
+              ctx.fillStyle = '#1f2937';
+              ctx.fillText(text, bar.x, bar.y - 4);
+            });
+          });
+          ctx.restore();
+        }
+      };
+
+      const drawLineLogos = {
+        id: 'drawLineLogosTT',
+        afterDatasetsDraw(chart) {
+          const { ctx, chartArea } = chart;
+          if (!chartArea) return;
+          const { top, bottom } = chartArea;
+          ctx.save();
+          chart.data.datasets.forEach((dataset, datasetIndex) => {
+            if (!dataset.logoSrc) return;
+            const meta = chart.getDatasetMeta(datasetIndex);
+            const lastPoint = meta.data[meta.data.length - 1];
+            if (!lastPoint) return;
+            const img = getLogo(dataset.logoSrc, chart);
+            if (!img || !img.complete) return;
+
+            const size = 16;
+            const canvasRight = chart.width;
+            const edgeInset = 0;
+            const x = canvasRight - size / 2 - edgeInset;
+            let y = lastPoint.y + 6;
+            y = Math.max(top + size / 2, Math.min(bottom - size / 2, y));
+
+            ctx.beginPath();
+            ctx.fillStyle = 'rgba(255,255,255,0.9)';
+            ctx.strokeStyle = 'rgba(15, 23, 42, 0.12)';
+            ctx.lineWidth = 1;
+            ctx.arc(x, y, size / 2 + 2, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.drawImage(img, x - size / 2, y - size / 2, size, size);
+          });
+          ctx.restore();
+        }
+      };
+
+      const drawStartLabels = {
+        id: 'drawStartLabelsTT',
+        afterDatasetsDraw(chart) {
+          const { ctx, chartArea } = chart;
+          if (!chartArea) return;
+          const { left, top, bottom } = chartArea;
+          ctx.save();
+          ctx.font = '700 13px "IBM Plex Sans", sans-serif';
+          ctx.textAlign = 'left';
+          ctx.textBaseline = 'middle';
+          chart.data.datasets.forEach((dataset, datasetIndex) => {
+            if (!dataset.showStartLabel) return;
+            const meta = chart.getDatasetMeta(datasetIndex);
+            const firstPoint = meta.data[0];
+            const secondPoint = meta.data[1];
+            if (!firstPoint || !secondPoint) return;
+            const dx = secondPoint.x - firstPoint.x;
+            const dy = secondPoint.y - firstPoint.y;
+            const angle = Math.atan2(dy, dx);
+            const offset = typeof dataset.labelOffset === 'number' ? dataset.labelOffset : -16;
+            const nx = -Math.sin(angle) * offset;
+            const ny = Math.cos(angle) * offset;
+            const x = Math.max(left + 16, firstPoint.x + 20);
+            let y = firstPoint.y + (dataset.labelOffsetY || 0);
+            y = Math.max(top + 12, Math.min(bottom - 12, y));
+            ctx.save();
+            ctx.translate(x + nx, y + ny);
+            ctx.rotate(angle);
+            ctx.fillStyle = dataset.borderColor || '#111827';
+            ctx.fillText(dataset.label, 0, 0);
+            ctx.restore();
+          });
+          ctx.restore();
+        }
+      };
+
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: dataSetsRaw.map((s) => ({
+            label: s.label,
+            data: s.data,
+            logoSrc: s.logo,
+            borderWidth: 2.8,
+            tension: 0.32,
+            pointRadius: 4,
+            pointHoverRadius: 5,
+            pointBorderWidth: 2,
+            pointBackgroundColor: '#ffffff',
+            pointBorderColor: s.from,
+            borderColor: s.from,
+            borderDash: s.dash || [],
+            pointStyle: s.pointStyle,
+            showStartLabel: s.showStartLabel,
+            backgroundColor: 'transparent',
+            fill: false
+          }))
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: { padding: { top: 12, left: 8, right: 28, bottom: 22 } },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: 'rgba(15, 23, 42, 0.9)',
+              titleColor: '#ffffff',
+              bodyColor: '#ffffff',
+              callbacks: {
+                label: (context) => `${context.dataset.label}: ${context.raw}`
+              }
+            }
+          },
+          scales: {
+            x: {
+              ticks: { font: { weight: '600' } },
+              grid: { display: false }
+            },
+            y: {
+              min: 0,
+              max: 100,
+              ticks: { stepSize: 20 },
+              grid: { color: 'rgba(15, 23, 42, 0.08)' }
+            }
+          }
+        },
+        plugins: [drawValues, drawLineLogos, drawStartLabels]
+      });
+    })();
+  </script>
+</body>
+</html>
